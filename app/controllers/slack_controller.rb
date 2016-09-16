@@ -27,7 +27,7 @@ class SlackController < ApplicationController
     puts ''
     puts ''
 
-    render json: {}, status:  200
+    render json: {}, status: 200
   end
 
 end
