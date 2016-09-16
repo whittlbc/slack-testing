@@ -13,21 +13,11 @@ class SlackController < ApplicationController
   end
 
   def message_action
-    puts ''
-    puts ''
-    puts ''
-    puts ''
-    puts ''
-    puts ''
-    puts "SLACK LIKE CLICKED: #{params.inspect}"
-    puts ''
-    puts ''
-    puts ''
-    puts ''
-    puts ''
-    puts ''
+    payload = JSON.parse(params[:payload])
+    original_message = payload['original_message']
+    original_message['attachments'].first['actions'].first['text'] = 'New Text'
 
-    render json: {}, status: 200
+    render json: original_message, status: 200
   end
 
 end
